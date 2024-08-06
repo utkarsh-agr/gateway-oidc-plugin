@@ -135,7 +135,7 @@ end
 function plugin:extract_bearer_token()
     -- get the value of the authorization header
     local header_value = kong.request.get_header("authorization")
-    if not authorization_header then
+    if not header_value then
         return kong.response.exit(400, cjson.encode(plugin:generate_error(
                     "MISSING_AUTHORIZATION_HEADER",
                     "Missing Authorization Header",
